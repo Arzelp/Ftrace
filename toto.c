@@ -5,7 +5,7 @@
 ** Login   <arthur.josso@epitech.eu>
 ** 
 ** Started on  Sat May  6 16:19:57 2017 Paskal
-** Last update Sat May  6 16:27:16 2017 Paskal
+** Last update Sun May  7 18:34:50 2017 Paskal
 */
 
 #include <unistd.h>
@@ -61,7 +61,7 @@ int main(int ac, char **av)
   int i;
   int len;
 
-  i = 0;
+      i = 0;
   if (ac == 1)
     {
       my_putstr("Wallah y'a pas d'argument wsh !\n");
@@ -76,7 +76,6 @@ int main(int ac, char **av)
 	  else
 	    i = go_dec(i);
 	}
-      return (0);
     }
   while (i < ac)
     {

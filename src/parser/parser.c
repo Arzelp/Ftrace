@@ -5,7 +5,7 @@
 ** Login   <paskal.arzel@epitech.eu>
 **
 ** Started on  Tue Apr  4 18:00:36 2017 Paskal Arzel
-** Last update Wed May  3 22:58:07 2017 Paskal Arzel
+** Last update Sun May  7 18:14:27 2017 Paskal Arzel
 */
 
 #include "ftrace.h"
@@ -14,12 +14,15 @@ static void	init_flags(ftrace *data)
 {
   data->opt.s = false;
   data->opt.p = false;
+  data->opt.m = false;
 }
 
 static int	set_in_data(int ac, char **av, ftrace *data, int i)
 {
   if (strcmp(av[i], "-s") == 0)
     data->opt.s = true;
+  else if (strcmp(av[i], "-m") == 0)
+    data->opt.m = true;
   else if (strcmp(av[i], "-p") == 0 && i < ac - 1)
     {
       data->opt.p = true;

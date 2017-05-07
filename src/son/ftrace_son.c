@@ -5,7 +5,7 @@
 ** Login   <paskal.arzel@epitech.eu>
 **
 ** Started on  Tue Apr  4 19:03:50 2017 Paskal Arzel
-** Last update Wed May  3 22:57:31 2017 Paskal Arzel
+** Last update Sun May  7 18:13:30 2017 Paskal Arzel
 */
 
 #include "ftrace.h"
@@ -29,6 +29,14 @@ static void	print_tab(char **tab)
 int  ftrace_son(ftrace *data)
 {
   data->son.pid = getpid();
+  if (data->opt.m)
+  {
+    if (dup2(3, 1) == -1)
+    {
+      printf("Can't dup\n");
+      return (EXIT_FAILURE);
+    }
+  }
   if (ptrace(PTRACE_TRACEME, data->son.pid, 0, &(data->infos.regs)) == -1)
     return (EXIT_FAILURE);
   if (data->opt.nobinary)

@@ -5,11 +5,11 @@
 ** Login   <paskal.arzel@epitech.eu>
 **
 ** Started on  Tue Apr  4 16:39:54 2017 Paskal Arzel
-** Last update Sun May  7 04:15:56 2017 Paskal Arzel
+** Last update Sun May  7 18:28:38 2017 Paskal Arzel
 */
 
-#ifndef ftrace_H__
-#define ftrace_H__
+#ifndef FTRACE_H__
+#define FTRACE_H__
 
 #include <fcntl.h>
 #include <sys/mman.h>
@@ -31,11 +31,14 @@
 #define ARCH_TRASH 32
 #define ARCH_SIZE 10
 #define ARCH_END 2
+#define SIGTRP 5
+#define NBSIG	32
 
 typedef struct
 {
   bool  s;
   bool  p;
+  bool	m;
   bool	nobinary;
 }flags;
 
@@ -127,6 +130,12 @@ typedef struct s_sys
   char	*params[MAXP];
 }t_sys;
 
+typedef struct s_sig
+{
+  char	*name;
+  bool	killer;
+}t_sig;
+
 typedef struct
 {
   struct user_regs_struct regs;
@@ -135,7 +144,9 @@ typedef struct
 
 typedef struct
 {
+  int											ret_value;
   pid_t										pid;
+  siginfo_t								sig;
   int											son_status;
   struct user_regs_struct	regs;
   struct user_regs_struct ret_regs;
@@ -216,5 +227,6 @@ int		del_frsck(ftrace *data);
 void	get_dyn_data(ftrace *data);
 int		init_dyn(t_nm *nm);
 int		find_dyn(ftrace *data);
+bool	get_signal(ftrace *data);
 
 #endif

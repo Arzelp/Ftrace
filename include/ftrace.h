@@ -5,7 +5,7 @@
 ** Login   <paskal.arzel@epitech.eu>
 **
 ** Started on  Tue Apr  4 16:39:54 2017 Paskal Arzel
-** Last update Sun May  7 18:28:38 2017 Paskal Arzel
+** Last update Sun May  7 18:42:51 2017 Paskal Arzel
 */
 
 #ifndef FTRACE_H__
@@ -181,6 +181,7 @@ typedef struct s_sck
 
 typedef struct s_trace
 {
+  bool	 working;
   flags  opt;
   proc   process;
   son		 son;

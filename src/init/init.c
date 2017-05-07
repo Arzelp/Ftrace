@@ -5,7 +5,7 @@
 ** Login   <paskal.arzel@epitech.eu>
 **
 ** Started on  Tue Apr  4 18:16:13 2017 Paskal Arzel
-** Last update Sun May  7 02:27:36 2017 Paskal Arzel
+** Last update Sun May  7 18:42:39 2017 Paskal Arzel
 */
 
 #include "ftrace.h"
@@ -60,6 +60,7 @@ static int	init_sck(ftrace *data)
 
 int  				init_ftrace(ftrace *data, int ac, char **av, char **ae)
 {
+  data->working = false;
   my_nm(data, data->process.binary, 1, 0);
   if (init_sck(data) == EXIT_FAILURE)
     return (EXIT_FAILURE);

@@ -5,7 +5,7 @@
 ** Login   <paskal.arzel@epitech.eu>
 **
 ** Started on  Tue Apr  4 19:01:53 2017 Paskal Arzel
-** Last update Sun May  7 18:34:04 2017 Paskal Arzel
+** Last update Sun May  7 18:43:22 2017 Paskal Arzel
 */
 
 #include "ftrace.h"
@@ -38,6 +38,7 @@ int  ftrace_father(ftrace *data)
     ptrace(PTRACE_PEEKUSER, data->son.pid, data->father.regs.rdi, NULL);
     print_infos(data);
     data->father.ret_value = data->father.regs.rax;
+    data->working = true;
   }
   return (EXIT_SUCCESS);
 }

@@ -5,7 +5,7 @@
 ** Login   <paskal.arzel@epitech.eu>
 **
 ** Started on  Thu Apr 13 15:16:11 2017 Paskal Arzel
-** Last update Wed May  3 22:57:53 2017 Paskal Arzel
+** Last update Thu May 18 15:36:35 2017 Paskal Arzel
 */
 
 #include "ftrace.h"
@@ -66,9 +66,9 @@ int	print_full(ftrace *data, int call, t_sys *g_sys)
 {
   int c;
 
-  (void)data;
-  c = printf("%s(", g_sys[call].name);
-  c = print_fargs(data, call, g_sys, c);
+  c = (data->opt.t) ? print_time() : 0;
+  c += printf("%s(", g_sys[call].name);
+  c += print_fargs(data, call, g_sys, c);
   print_fret(data, call, g_sys, c);
   printf("\n");
   return (EXIT_SUCCESS);

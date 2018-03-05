@@ -5,7 +5,7 @@
 ** Login   <paskal.arzel@epitech.eu>
 **
 ** Started on  Tue Apr  4 16:39:54 2017 Paskal Arzel
-** Last update Sun May  7 18:42:51 2017 Paskal Arzel
+** Last update Thu May 18 15:33:56 2017 Paskal Arzel
 */
 
 #ifndef FTRACE_H__
@@ -23,6 +23,7 @@
 #include <stdbool.h>
 #include <string.h>
 #include <unistd.h>
+#include <time.h>
 
 #define MAXP 9
 #define NB_PRINTER 7
@@ -39,6 +40,7 @@ typedef struct
   bool  s;
   bool  p;
   bool	m;
+  bool	t;
   bool	nobinary;
 }flags;
 
@@ -229,5 +231,6 @@ void	get_dyn_data(ftrace *data);
 int		init_dyn(t_nm *nm);
 int		find_dyn(ftrace *data);
 bool	get_signal(ftrace *data);
+int	print_time(void);
 
 #endif

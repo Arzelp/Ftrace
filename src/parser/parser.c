@@ -5,7 +5,7 @@
 ** Login   <paskal.arzel@epitech.eu>
 **
 ** Started on  Tue Apr  4 18:00:36 2017 Paskal Arzel
-** Last update Sun May  7 18:14:27 2017 Paskal Arzel
+** Last update Thu May 18 15:39:17 2017 Paskal Arzel
 */
 
 #include "ftrace.h"
@@ -15,6 +15,7 @@ static void	init_flags(ftrace *data)
   data->opt.s = false;
   data->opt.p = false;
   data->opt.m = false;
+  data->opt.t = false;
 }
 
 static int	set_in_data(int ac, char **av, ftrace *data, int i)
@@ -23,6 +24,8 @@ static int	set_in_data(int ac, char **av, ftrace *data, int i)
     data->opt.s = true;
   else if (strcmp(av[i], "-m") == 0)
     data->opt.m = true;
+  else if (strcmp(av[i], "-t") == 0)
+    data->opt.t = true;
   else if (strcmp(av[i], "-p") == 0 && i < ac - 1)
     {
       data->opt.p = true;
@@ -37,10 +40,7 @@ static int	set_in_data(int ac, char **av, ftrace *data, int i)
       data->process.args_pos = i;
     }
   else if (av[i][0] == '-')
-    {
-      printf("Invalid argument [%s]\n", av[i]);
-      return (EXIT_FAILURE);
-    }
+    return (EXIT_FAILURE + 0 * printf("Invalid argument [%s]\n", av[i]));
   return (EXIT_SUCCESS);
 }
 

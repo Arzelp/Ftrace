@@ -5,7 +5,7 @@
 ** Login   <paskal.arzel@epitech.eu>
 **
 ** Started on  Sun May  7 18:27:57 2017 Paskal Arzel
-** Last update Sun May  7 18:33:41 2017 Paskal Arzel
+** Last update Thu May 18 15:38:14 2017 Paskal Arzel
 */
 
 #include "syscall.h"
@@ -19,6 +19,8 @@ static bool	check_if_intern(ftrace *data)
   {
     if (data->func[i].value == data->father.regs.rip)
     {
+      if (data->opt.t)
+        print_time();
       printf("Entering function %s at 0x%llx\n", data->func[i].name,
       data->func[i].value);
       if (set_insck(data, data->func[i].name, data->func[i].value)
@@ -37,6 +39,8 @@ static bool	check_if_leaving(ftrace *data)
     data->fstack.funcs[data->fstack.insck - 1].instruction
     == data->infos.instruction)
     {
+      if (data->opt.t)
+      	print_time();
       printf("Leaving function %s at 0x%llx\n",
       data->fstack.funcs[data->fstack.insck - 1].name,
       data->fstack.funcs[data->fstack.insck - 1].value);

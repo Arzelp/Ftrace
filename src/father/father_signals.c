@@ -5,7 +5,7 @@
 ** Login   <paskal.arzel@epitech.eu>
 **
 ** Started on  Sun May  7 16:01:16 2017 Paskal Arzel
-** Last update Sun May  7 18:32:41 2017 Paskal Arzel
+** Last update Thu May 18 15:37:52 2017 Paskal Arzel
 */
 
 #include "ftrace.h"
@@ -17,6 +17,8 @@ bool	get_signal(ftrace *data)
   {
     if (g_sig[data->father.sig.si_signo - 1].killer)
     {
+      if (data->opt.t)
+  	    print_time();
       printf("Received a deadly signal %s\n",
       g_sig[data->father.sig.si_signo - 1].name);
       kill(data->son.pid, data->father.sig.si_signo);

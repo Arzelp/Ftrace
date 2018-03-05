@@ -5,7 +5,7 @@
 ** Login   <paskal.arzel@epitech.eu>
 **
 ** Started on  Thu Apr 13 14:32:06 2017 Paskal Arzel
-** Last update Wed May  3 22:57:56 2017 Paskal Arzel
+** Last update Thu May 18 15:42:14 2017 Paskal Arzel
 */
 
 #include "ftrace.h"
@@ -37,7 +37,7 @@ static int print_largs(ftrace *data, int call, t_sys *g_sys, int c)
 
 static void print_lret(ftrace *data, int call, t_sys *g_sys, int c)
 {
-  while (c < 38)
+  while (c < 48)
   {
     printf(" ");
     c++;
@@ -56,6 +56,8 @@ int	print_less(ftrace *data, int call, t_sys *g_sys)
   int c;
 
   c = 0;
+  if (data->opt.t)
+    c += print_time();
   c += printf("%s(", g_sys[call].name);
 	c = print_largs(data, call, g_sys, c);
   print_lret(data, call, g_sys, c);

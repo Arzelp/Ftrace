@@ -5,7 +5,7 @@
 ** Login   <paskal.arzel@epitech.eu>
 **
 ** Started on  Tue Apr  4 19:01:53 2017 Paskal Arzel
-** Last update Sun May  7 18:43:22 2017 Paskal Arzel
+** Last update Thu May 18 15:37:59 2017 Paskal Arzel
 */
 
 #include "ftrace.h"
@@ -13,7 +13,7 @@
 void	intHandler(int toto)
 {
   (void)toto;
-  printf("--- SIGINT (Interrupt) ---\n");
+  printf("\n--- SIGINT (Interrupt) ---\n");
   printf("+++ killed by SIGINT +++\n");
   exit(SIGINT);
 }

@@ -5,7 +5,7 @@
 ## Login   <paskal.arzel@epitech.eu>
 ##
 ## Started on  Mon Mar  6 15:33:06 2017 Paskal Arzel
-## Last update Sun May  7 18:29:09 2017 Paskal Arzel
+## Last update Thu May 18 15:30:08 2017 Paskal Arzel
 ##
 
 ECHO		=	/bin/echo -e
@@ -37,6 +37,7 @@ SRC 	=	$(DIR_SRC)ftrace.c \
 			$(DIR_FTH)father_signals.c \
 			$(DIR_PRT)print_less.c \
 			$(DIR_PRT)print_full.c \
+			$(DIR_PRT)print_time.c \
 			$(DIR_PRT)print_numbers.c \
 			$(DIR_PRT)print_string.c \
 			$(DIR_PRT)find_fct.c \
